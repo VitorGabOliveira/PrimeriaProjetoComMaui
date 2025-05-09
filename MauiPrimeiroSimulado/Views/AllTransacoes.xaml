@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiPrimeiroSimulado.Views.AllTransacoes"
+             Title="AllTransacoes">
+    <VerticalStackLayout>
+        <ScrollView>
+            <VerticalStackLayout Padding="20">
+                <!-- Título -->
+                <Label
+            Text="Produtos"
+            FontSize="40"
+            FontAttributes="Bold"
+            TextColor="Blue"
+            HorizontalOptions="Center" 
+            VerticalOptions="Center" />
+
+                <!-- Grid de busca e botão -->
+                <Grid ColumnSpacing="10" Margin="0,20,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+
+                  
+                    <Label
+                Text="Categoria"
+                Grid.Row="1"
+                Margin="10,0,0,0"
+                Grid.Column="0"
+                TextColor="Black"/>
+                    <Label
+                TextColor="Black"
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="Produto"
+                HorizontalOptions="Center"/>
+                    <Label
+                Grid.Row="1"
+                TextColor="Black"
+                Grid.Column="2"
+                Text="Quantidade"
+                Margin="0,0,10,0"
+                HorizontalOptions="End"/>
+
+
+                </Grid>
+
+                <!-- Lista de Transações -->
+                <CollectionView            
+            x:Name="listaProdutos"
+            ItemsSource="{Binding transacoes}"
+            SelectionMode="Single"           
+            VerticalOptions="FillAndExpand">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout
+                    Orientation="Vertical"
+                    ItemSpacing="2" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                        Padding="10"
+                        Margin="5"
+                        CornerRadius="8"
+                        HasShadow="True"
+                        BackgroundColor="Aqua">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"  CommandParameter="{Binding}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+                                        Grid.Column="0"
+                                        Text="{Binding produtoId}"
+                                        TextColor="Black"
+                                />
+                                    <Label
+                                        Grid.Column="1"
+                                        Text="{Binding tipoTransacao}"
+                                        TextColor="Red"
+                                        HorizontalOptions="Center"
+                                        FontAttributes="Bold" />
+                                    <Label
+                                        Grid.Column="2"
+                                        Text="{Binding quantidadeTransacao}"
+                                        TextColor="Red"
+                                        HorizontalOptions="End"
+                                        FontAttributes="Bold" />
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Button Text="Sair"
+             BackgroundColor="Red"
+             TextColor="White"
+             Margin="5"
+             FontAttributes="Bold"/>
+            </VerticalStackLayout>
+
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

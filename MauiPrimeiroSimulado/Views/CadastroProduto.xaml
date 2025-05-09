@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiPrimeiroSimulado.Views.CadastroProduto"
+             Title="CadastroProduto"
+             BackgroundColor="Pink">
+    <VerticalStackLayout>
+        <Label 
+            x:Name="tituloEntry"
+            FontSize="30"
+            FontAttributes="Bold"
+            FontFamily="Empty"
+            Margin="0, 15, 0, 0"
+            Text="Cadastrar Novo Produto"
+            TextColor="AliceBlue"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Frame CornerRadius="20"
+               BackgroundColor="White"
+               Padding="20"
+               Margin="0, 30, 0, 0"
+               WidthRequest="350"
+               HasShadow="True"
+               BorderColor="Purple">
+            <VerticalStackLayout Spacing="10">
+                
+                <Label
+                    Text="Produto"
+                    HorizontalTextAlignment="Start"
+                    TextColor="Black"/>
+                
+                <Frame
+                    CornerRadius="25"
+                    BorderColor="Black"
+                    BackgroundColor="White"
+                    Padding="10"
+                    HasShadow="False"
+                    HeightRequest="60">
+
+                    <Entry
+                    x:Name="nomeProdutoEntry"
+                    Placeholder="Nome"
+                    FontSize="16"
+                    TextColor="Black"
+                    BackgroundColor="Transparent" /> 
+                    
+                </Frame>
+                
+                <Label
+                    Text="Categoria"
+                    TextColor="Black"/> 
+                <Frame                 
+                    CornerRadius="25"
+                    BorderColor="Black"
+                    BackgroundColor="White"
+                    Padding="10"
+                    HasShadow="False"
+                    HeightRequest="60">
+
+                    <Entry
+                        x:Name="categoriaEntry"
+                        Placeholder="Categoria"
+                        FontSize="16"
+                        TextColor="Black"
+                        BackgroundColor="Transparent"/>                   
+                </Frame>
+                
+                <Label
+                    Text="Preço"
+                    HorizontalTextAlignment="Start"    
+                    TextColor="Black"/>
+                
+                 <Frame                    
+                    CornerRadius="25"
+                    BorderColor="Black"
+                    BackgroundColor="White"
+                    Padding="10"
+                    HasShadow="False"
+                    HeightRequest="60">
+
+                    <Entry
+                        x:Name="precoEntry"
+                        Placeholder="Preço R$"
+                        FontSize="16"
+                        TextColor="Black"
+                        BackgroundColor="Transparent"
+                    />
+                </Frame>
+
+                <Label
+                    Text="Quantidade"
+                    HorizontalTextAlignment="Start"    
+                    TextColor="Black"/>     
+
+                <Frame
+                    CornerRadius="25"
+                    BorderColor="Black"
+                    BackgroundColor="White"
+                    Padding="10"
+                    HasShadow="False"
+                    HeightRequest="60">
+
+                    <Entry                       
+                        x:Name="quantidadeEntry"
+                        Placeholder="Quantidade"
+                        FontSize="16"
+                        TextColor="Black"
+                        BackgroundColor="Transparent"
+    />
+                </Frame>
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                
+
+                <Button Text="Salvar"
+                        Grid.Column="0"
+                        BackgroundColor="Green"
+                        TextColor="White" 
+                        Margin="5"
+                        FontAttributes="Bold"
+                        Clicked="CriarProduto"
+                        />
+                    
+                <Button Text="Sair"
+                        Grid.Column="1"
+                        BackgroundColor="Red"
+                        TextColor="White"
+                         Margin="5"
+                        FontAttributes="Bold"
+                        Clicked="VoltarParaHome"/>
+
+                </Grid>
+
+            </VerticalStackLayout>
+
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>
